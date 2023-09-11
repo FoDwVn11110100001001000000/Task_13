@@ -31,15 +31,15 @@ def add_quotes():
 def search():
     while True:
         text_input = input('Please, input your request: ')
-        if text_input == "exit" or text_input == "exit ":
+        if text_input == "exit":
             break
         text_input = text_input.split(':')
         if text_input[0] == 'name':
             author_name = text_input[1].strip()
-            quote = Quotes.objects.filter(Author.fullname==author_name)
+            quote = Quotes.objects.filter(Author.fullname == author_name)
             for quotee in quote:
                 print(quotee.quote)
-        elif text_input[0] =='tag':
+        elif text_input[0] == 'tag':
             tag = text_input[1].strip()
             for quote in Quotes.objects:
                 if tag in quote.tags:
